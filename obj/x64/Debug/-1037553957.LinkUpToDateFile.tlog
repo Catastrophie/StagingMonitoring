@@ -1,0 +1,1 @@
+g++ -o "/home/u6004654/projects/StagingMonitoring/bin/x64/Debug/StagingMonitoring.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /home/u6004654/projects/StagingMonitoring/obj/x64/Debug/JSONStaging.o

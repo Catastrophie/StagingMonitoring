@@ -1,0 +1,12 @@
+﻿  Validating sources
+  Copying sources remotely to 'lab1-10.eng.utah.edu'
+  Validating architecture
+  Validating architecture
+  Starting remote build
+  Compiling sources:
+  JSONStaging.cpp
+C:\Users\black\source\repos\StagingMonitoring\StagingMonitoring\JSONStaging.cpp(43,39): warning : conversion to ‘int’ from ‘std::vector<std::basic_string<char> >::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\Users\black\source\repos\StagingMonitoring\StagingMonitoring\JSONStaging.cpp(43,39): warning :          int last = timestampVect.size();
+C:\Users\black\source\repos\StagingMonitoring\StagingMonitoring\JSONStaging.cpp(43,39): warning :                                        ^
+  Linking objects
+  StagingMonitoring.vcxproj -> C:\Users\black\source\repos\StagingMonitoring\StagingMonitoring\bin\x64\Debug\StagingMonitoring.out
