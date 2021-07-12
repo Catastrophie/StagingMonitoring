@@ -16,7 +16,6 @@
 //};
 
 int currentTime = 0;
-std::fstream timeStampMonitorStats("C:/Users/black/Downloads/testingTempdata.txt");
 std::vector<std::string> timestampVect;
 std::vector<std::pair<std::string, std::string>> statBySystem;
 std::string holdString;

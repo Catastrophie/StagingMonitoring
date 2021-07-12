@@ -5,19 +5,20 @@
 
 
 //Main
-int main()
+int main2()
 {
+    std::ifstream timeStampMonitorStats("testingTempdata.txt");
 
     while (true)
     {
-        if (timeStampMonitorStats.fail()) {
-
-            //Create listening loop for change to size or sleep
-            break; //may not need exactly like this
-        }
-
-        endOfFileRead = timeStampMonitorStats.tellp();
         timeStampMonitorStats >> holdString;
+       // if (timeStampMonitorStats.fail()) {
+       //     timeStampMonitorStats.close();
+            //Create listening loop for change to size or sleep
+       //     break; //may not need exactly like this
+       //}
+
+        //endOfFileRead = timeStampMonitorStats.tellp();
 
         holdString.erase(0, holdString.find("defaultdict(<class 'dict'>, {"));
         holdString.erase(holdString.find("})"), holdString.length());
@@ -57,66 +58,66 @@ int main()
         }
     }
 }
-    /*
-    defaultdict(<class 'dict'>, {
-        1623427831
-        : {'
-        ddc-infra-pdu-h9-1.redhorn
-        ': '
-        44
-        ', '
-        ddc-infra-pdu-q5-1.redhorn
-        ': '
-        43
-        ', '
-        ddc-infra-pdu-s11-1.redhorn
-        ': '
-        39
-        ', '
-        ddc-infra-pdu-u11-1.redhorn
-        ': '
-        45
-        ', '
-        ddc-infra-pdu-u7-1.redhorn
-        ': '
-        46
-        '}, 
-        1623428431: {'ddc-infra-pdu-h9-1.redhorn': '42', 'ddc-infra-pdu-q5-1.redhorn': '40', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '42', 'ddc-infra-pdu-u7-1.redhorn': '44'}, 
-        1623429031: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623429631: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '35', 'ddc-infra-pdu-s11-1.redhorn': '36', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623430231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623430831: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623431431: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '36', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623432031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623432631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623433231: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623433831: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623434431: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623435031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623435631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623436231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623436831: {'ddc-infra-pdu-h9-1.redhorn': '37', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623437431: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623438031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '39'}, 
-        1623438631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '40', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623439231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '35'}, 
-        1623439831: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623440431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623441031: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623441631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '39'}, 
-        1623442231: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623442831: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '39'}, 
-        1623443431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623444031: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623444631: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623445231: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '35'}, 
-        1623445831: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'}, 
-        1623446431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'}, 
-        1623447031: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623447631: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'}, 
-        1623448231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '40'}, 
-        1623448831: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'},
-        ...
-        }})
+/*
+defaultdict(<class 'dict'>, {
+    1623427831
+    : {'
+    ddc-infra-pdu-h9-1.redhorn
+    ': '
+    44
+    ', '
+    ddc-infra-pdu-q5-1.redhorn
+    ': '
+    43
+    ', '
+    ddc-infra-pdu-s11-1.redhorn
+    ': '
+    39
+    ', '
+    ddc-infra-pdu-u11-1.redhorn
+    ': '
+    45
+    ', '
+    ddc-infra-pdu-u7-1.redhorn
+    ': '
+    46
+    '},
+    1623428431: {'ddc-infra-pdu-h9-1.redhorn': '42', 'ddc-infra-pdu-q5-1.redhorn': '40', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '42', 'ddc-infra-pdu-u7-1.redhorn': '44'},
+    1623429031: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623429631: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '35', 'ddc-infra-pdu-s11-1.redhorn': '36', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623430231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623430831: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623431431: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '36', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623432031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623432631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623433231: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623433831: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623434431: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623435031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623435631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623436231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623436831: {'ddc-infra-pdu-h9-1.redhorn': '37', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623437431: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623438031: {'ddc-infra-pdu-h9-1.redhorn': '41', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '39'},
+    1623438631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '40', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623439231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '35'},
+    1623439831: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623440431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623441031: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623441631: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '39'},
+    1623442231: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623442831: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '39'},
+    1623443431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623444031: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '39', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623444631: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623445231: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '37', 'ddc-infra-pdu-u11-1.redhorn': '36', 'ddc-infra-pdu-u7-1.redhorn': '35'},
+    1623445831: {'ddc-infra-pdu-h9-1.redhorn': '40', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '35', 'ddc-infra-pdu-u7-1.redhorn': '36'},
+    1623446431: {'ddc-infra-pdu-h9-1.redhorn': '39', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '38', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    1623447031: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '37', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623447631: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '38', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '37', 'ddc-infra-pdu-u7-1.redhorn': '38'},
+    1623448231: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '40', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '40'},
+    1623448831: {'ddc-infra-pdu-h9-1.redhorn': '38', 'ddc-infra-pdu-q5-1.redhorn': '39', 'ddc-infra-pdu-s11-1.redhorn': '39', 'ddc-infra-pdu-u11-1.redhorn': '38', 'ddc-infra-pdu-u7-1.redhorn': '37'},
+    ...
+    }})
 
-    */
+*/
